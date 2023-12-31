@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  <link rel="stylesheet" href="styles.css"/>
+  </head>
+
+  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+<div class="slider-container">
+  <div class="left-slide">
+    <div style="color: #a0b5c2">
+      <h1>Graphic Design</h1>
+      <p>Blender</p>
+    </div>
+    <div style="color: #c8c9a0">
+      <h1>Graphic Design</h1>
+      <p>Blender</p>
+    </div>
+ 
+    <div style="color: #c0a288">
+      <h1>Graphic Design</h1>
+      <p>Figma Banner</p>
+    </div>
+    <div style="color: #c0a288">
+      <h1>Graphic Design</h1>
+      <p>Blender</p>
+    </div>
+    <div style="color: #ba6f2e">
+      <h1>Web Develoment</h1>
+      <p>Project Link:<a href="https://hqbianca.github.io/travell-company"target="_blank">Travell with us</a></p>
+    </div>
+    <div style="color: rgb(252, 201, 157)">
+      <h1>Web Development</h1>
+      <p>Project Link:<a href="https://hqbianca.github.io/Bakery/"target="_blank">Bakery Website</a></p>
+    </div>
+  </div>
+  <div class="right-slide">
+    <div style="background-image:url(Screenshot\ \(31\).png)">
+    </div>
+    <div class="image"><img src="Screenshot (36).png"alt="image" style="height:100%">
+    </div>
+    <div class="video-container">
+      <video autoplay muted loop>
+      <source src="final_62af73c43dd490007ac9211f_365408.mp4"></video>
+    </div>
+    <div style="background-image:url(Screenshot\ 2023-05-08\ 135727.png)">
+    </div>
+    <div style="background-image:url(bottle.png)">
+    </div>
+  
+    <div style="background-image: url(Screenshot\ \(27\).png);">
+    </div>
+  </div>
+  <div class="action-buttons">
+    <button class="down-button"><i class="fa-solid fa-caret-down"></i></button>
+    <button class="up-button"><i class="fa-solid fa-caret-up"></i></button>
+  </div>
+</div>
+    <script>
+      const sliderContainer = document.querySelector(".slider-container");
+const slideRight = document.querySelector(".right-slide");
+const slideLeft = document.querySelector(".left-slide");
+const upButton = document.querySelector(".up-button");
+const downButton = document.querySelector(".down-button");
+const slidesLength = slideRight.querySelectorAll("div").length;
+
+let activeSlideIndex = 0;
+
+slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`;
+
+upButton.addEventListener("click", () => changeSlide("up"));
+downButton.addEventListener("click", () => changeSlide("down"));
+
+const changeSlide = (direction) => {
+  const sliderHeight = sliderContainer.clientHeight;
+  if (direction === "up") {
+    activeSlideIndex++;
+    if (activeSlideIndex > slidesLength - 1) {
+      activeSlideIndex = 0;
+    }
+  } else if (direction === "down") {
+    activeSlideIndex--;
+    if (activeSlideIndex < 0) {
+      activeSlideIndex = slidesLength - 1;
+    }
+  }
+
+  slideRight.style.transform = `translateY(-${
+    activeSlideIndex * sliderHeight
+  }px)`;
+  slideLeft.style.transform = `translateY(${
+    activeSlideIndex * sliderHeight
+  }px)`;
+};
+
+    </script>
+      
+  </body>
+</html>
